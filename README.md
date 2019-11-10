@@ -6,7 +6,7 @@ This is my implementation for the Game 2048.
 
 2. Clone this repository on your local machine
 ```
-$ git clone https://github.com/dle8/RocPlanner.git
+$ git clone https://github.com/Soos99/Game-2048.git
 $ cd Game-2048
 ```
 3. Compile and run the file Main.java 
