@@ -1,5 +1,6 @@
-package com.company;
-
+import Component.*;
+import GUI.*;
+import LeaderBoard.*;
 import javax.swing.*;
 
 public class Main {
