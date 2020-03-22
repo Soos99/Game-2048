@@ -1,6 +1,4 @@
 package LeaderBoard;
-import Component.*;
-import GUI.*;
 import java.io.*;
 import java.util.ArrayList;
 

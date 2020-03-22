@@ -1,5 +1,4 @@
 package Component;
-import LeaderBoard.*;
 import GUI.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;

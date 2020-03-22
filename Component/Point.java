@@ -1,6 +1,4 @@
 package Component;
-import LeaderBoard.*;
-import GUI.*;
 public class Point {
     public int row;
     public int col;

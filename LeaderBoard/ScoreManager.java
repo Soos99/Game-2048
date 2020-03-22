@@ -1,6 +1,5 @@
 package LeaderBoard;
 import Component.*;
-import GUI.*;
 import java.io.*;
 
 public class ScoreManager {

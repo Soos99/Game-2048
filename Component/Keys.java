@@ -1,6 +1,4 @@
 package Component;
-import LeaderBoard.*;
-import GUI.*;
 import java.awt.event.KeyEvent;
 
 public class Keys {

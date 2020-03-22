@@ -1,6 +1,4 @@
 package GUI;
-import LeaderBoard.*;
-import Component.*;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.font.TextLayout;

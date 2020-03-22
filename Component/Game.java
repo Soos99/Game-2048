@@ -1,5 +1,4 @@
 package Component;
-import LeaderBoard.*;
 import GUI.*;
 import javax.swing.*;
 import java.awt.*;

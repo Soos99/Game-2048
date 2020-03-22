@@ -1,6 +1,5 @@
 package Component;
 import LeaderBoard.*;
-import GUI.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -28,8 +27,6 @@ public class GameBoard {
     public static int BOARD_WIDTH = (COLS + 1) * SPACING + COLS * Tile.WIDTH;
     public static int BOARD_HEIGHT = (ROWS + 1) * SPACING + ROWS * Tile.HEIGHT;
 
-    private long elapsedMS;
-    private long startTime;
     private boolean hasStarted;
 
     private ScoreManager scores;
@@ -71,8 +68,6 @@ public class GameBoard {
         dead = false;
         won = false;
         hasStarted = false;
-        startTime = System.nanoTime();
-        elapsedMS = 0;
         saveCount = 0;
     }
 
@@ -105,7 +100,7 @@ public class GameBoard {
 
     public void update() {
         saveCount++;
-        if (saveCount >= 120) {
+        if (saveCount >= 1000) {
             saveCount = 0;
             scores.saveGame();
         }
