@@ -16,8 +16,8 @@ public class GameBoard {
 
     private final int startingTiles = 2;
     private Tile[][] board;
-    private boolean dead;
-    private boolean won;
+    public boolean dead;
+    public boolean won;
     private BufferedImage gameBoard;
     private int x;
     private int y;
@@ -27,12 +27,27 @@ public class GameBoard {
     public static int BOARD_WIDTH = (COLS + 1) * SPACING + COLS * Tile.WIDTH;
     public static int BOARD_HEIGHT = (ROWS + 1) * SPACING + ROWS * Tile.HEIGHT;
 
-    private boolean hasStarted;
+    public boolean hasStarted;
+    public boolean perform;
 
     private ScoreManager scores;
+    public int currentScore;
     private Leaderboards lBoard;
     private int saveCount = 0;
 
+    //for copies
+    // public GameBoard(GameBoard curr){
+    //     this.board = new Tile[ROWS][COLS];
+    //     for (int i = 0; i < ROWS; i++){
+    //         for (int j = 0; j < COLS; j++){
+    //             this.board[i][j] = new Tile(curr.board[i][j].getValue(),i,j);
+    //         }
+    //     }
+    //     this.dead = curr.dead;
+    //     this.won = curr.won;
+    //     this.hasStarted = curr.hasStarted;
+    // }
+    //normal construction
     public GameBoard(int x, int y) {
         this.x = x;
         this.y = y;
@@ -44,10 +59,12 @@ public class GameBoard {
         lBoard.loadScores();
         scores = new ScoreManager(this);
         scores.loadGame();
+        currentScore = scores.getCurrentScore();
         scores.setCurrentTopScore(lBoard.getHighScore());
         if(scores.newGame()){
             start();
             scores.saveGame();
+            currentScore = scores.getCurrentScore();
         }
         else{
             for(int i = 0; i < scores.getBoard().length; i++){
@@ -58,7 +75,9 @@ public class GameBoard {
             dead = checkDead();
             // not coalling setWon because we don't want to save the time
             won = checkWon();
+            currentScore = scores.getCurrentScore();
         }
+        perform = true;
     }
 
     public void reset(){
@@ -228,6 +247,7 @@ public class GameBoard {
                 board[newRow][newCol].setSlideTo(new Point(newRow, newCol));
                 board[newRow][newCol].setCombineAnimation(true);
                 scores.setCurrentScore(scores.getCurrentScore() + board[newRow][newCol].getValue());
+                currentScore = scores.getCurrentScore();
             }
             else {
                 move = false;

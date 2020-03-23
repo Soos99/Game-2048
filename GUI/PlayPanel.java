@@ -34,22 +34,33 @@ public class PlayPanel extends GuiPanel {
         scores = board.getScores();
         info = new BufferedImage(Game.WIDTH, 200, BufferedImage.TYPE_INT_RGB);
 
-        restart = new GuiButton(30, 40,smallButtonWidth ,buttonHeight*2);
-        restart.setText("New Game");
-        restart.addActionListener(new ActionListener() {
+        ActionListener click = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board.getScores().reset();
-                board.reset();
-                alpha = 0;
+                    //System.out.println("Action Performed...");
+                if (board.perform){
+                    board.getScores().reset();
+                    board.reset();
+                    alpha = 0;
 
-                remove(tryAgain);
-                remove(mainMenu);
+                    //remove(restart);
+                    remove(tryAgain);
+                    remove(mainMenu);
+                    //add(restart);
 
-                added = false;
+                    added = false;
+                    board.perform = false;
+                }
+                else {
+                    board.perform = !board.perform;
+                }
             }
-        });
+        };
+        restart = new GuiButton(30, 40,smallButtonWidth ,buttonHeight*2);
+        restart.setText("New Game");
+        restart.addActionListener(click);
         add(restart);
+        
         mainMenu = new GuiButton(Game.WIDTH / 2 - largeButtonWidth / 2, 450, largeButtonWidth, buttonHeight);
         tryAgain = new GuiButton(mainMenu.getX(), mainMenu.getY() - spacing - buttonHeight,largeButtonWidth, buttonHeight);
         tryAgain.setText("Try Again");

@@ -31,6 +31,9 @@ public class GuiButton {
     public void update(){
     }
 
+    public int getActionListenersLength() {
+        return actionListeners.size();
+    }
     public void render(Graphics2D g){
         if(currentState == State.RELEASED){
             g.setColor(main);
@@ -51,6 +54,7 @@ public class GuiButton {
 
     public void addActionListener(ActionListener listener){
         actionListeners.add(listener);
+        //System.out.println(actionListeners.size());
     }
 
     public void mousePressed(MouseEvent e) {
