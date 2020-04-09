@@ -17,3 +17,6 @@ $ java Main
 ```
 ## How to play the game 
 Use your arrow keys to move tiles. When two tiles with the same number touch, they merge into one
+
+## To do 
+- Develop A.I Solver using Monte Carlo methods and Minimax algorithms.
